@@ -1,0 +1,30 @@
+name: RSS Notify Me - Daily Check
+
+on: 
+  schedule:
+    - cron: '0 0 * * *' # UTC 00:00 -> 09:00 KST
+  workflow_dispatch: # 수동 실행도 가능
+
+jobs:
+  check-feeds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run RSS Check
+        env:
+          GOOGLE_USER: ${{ secrets.GOOGLE_USER }}
+          GOOGLE_APP_PASSWORD: ${{ secrets.GOOGLE_APP_PASSWORD }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          RSS_FEED_URLS: ${{ secrets.RSS_FEED_URLS }}
+        run: npm run start
