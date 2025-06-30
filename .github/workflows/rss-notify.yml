@@ -27,4 +27,4 @@ jobs:
           MAIL_FROM: ${{ secrets.MAIL_FROM }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
           RSS_FEED_URLS: ${{ secrets.RSS_FEED_URLS }}
-        run: npm run start
+        run: npx ts-node src/index.ts
