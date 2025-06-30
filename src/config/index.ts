@@ -15,7 +15,7 @@ function requireEnv(name: string): string {
 }
 
 // Gmail 설정
-export const GMAIL_USER = requireEnv('GMAIL_USER');
+export const GOOGLE_USER = requireEnv('GOOGLE_USER');
 export const GOOGLE_APP_PASSWORD = requireEnv('GOOGLE_APP_PASSWORD');
 
 // 이메일 발신/수신자 설정
