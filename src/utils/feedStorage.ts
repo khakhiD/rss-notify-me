@@ -1,5 +1,5 @@
 import fs from 'fs/promises';
-import { FEED_PATH, MAX_LINKS } from '../config/constants';
+import { FEED_PATH, MAX_LINKS } from '../config';
 
 export type FeedMemory = {
   [feedUrl: string]: {

@@ -1,5 +1,5 @@
 import fs from 'fs/promises';
-import { FEED_PATH } from '../config/constants';
+import { FEED_PATH } from '../config';
 
 export async function readFeedState(): Promise<Record<string, number>> {
   try {

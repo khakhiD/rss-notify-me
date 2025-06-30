@@ -23,4 +23,8 @@ export const MAIL_FROM = requireEnv('MAIL_FROM');
 export const MAIL_TO = requireEnv('MAIL_TO').split(',').map(email => email.trim());
 
 // RSS 피드 목록 설정
-export const RSS_FEED_URLS = requireEnv('RSS_FEED_URLS').split(',').map(url => url.trim()); 
+export const RSS_FEED_URLS = requireEnv('RSS_FEED_URLS').split(',').map(url => url.trim());
+
+// 피드 저장 경로, 최대 링크 수 설정
+export const FEED_PATH = path.join(__dirname, '..', '..', 'feed.json');
+export const MAX_LINKS = 20;
