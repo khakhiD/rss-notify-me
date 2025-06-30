@@ -5,6 +5,7 @@ type RSSItem = {
   title: string;
   link: string;
   pubDate?: string;
+  source: string;
 };
 
 const parser = new Parser();
