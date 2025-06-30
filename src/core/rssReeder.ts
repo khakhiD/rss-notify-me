@@ -1,12 +1,6 @@
 import Parser from 'rss-parser';
+import { RSSItem } from '../types';
 import { loadFeedMemory, saveFeedMemory, updateFeedState } from '../utils/feedStorage';
-
-type RSSItem = {
-  title: string;
-  link: string;
-  pubDate?: string;
-  source: string;
-};
 
 const parser = new Parser();
 

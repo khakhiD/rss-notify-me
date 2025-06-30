@@ -1,12 +1,6 @@
 import fs from 'fs/promises';
 import { FEED_PATH, MAX_LINKS } from '../config';
-
-export type FeedMemory = {
-  [feedUrl: string]: {
-    links: string[];
-    lastChecked: number;
-  };
-};
+import { FeedMemory } from '../types';
 
 export async function loadFeedMemory(): Promise<FeedMemory> {
   try {
