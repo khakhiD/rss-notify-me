@@ -1,7 +1,5 @@
 import fs from 'fs/promises';
-import path from 'path';
-
-const FEED_PATH = path.resolve(process.cwd(), 'feed.json');
+import { FEED_PATH } from '../config/constants';
 
 export async function readFeedState(): Promise<Record<string, number>> {
   try {

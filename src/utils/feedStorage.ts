@@ -1,8 +1,5 @@
 import fs from 'fs/promises';
-import path from 'path';
-
-const FEED_FILE = path.resolve(__dirname, '../../../feed.json');
-const MAX_LINKS = 20;
+import { FEED_PATH, MAX_LINKS } from '../config/constants';
 
 export type FeedMemory = {
   [feedUrl: string]: {
@@ -13,7 +10,7 @@ export type FeedMemory = {
 
 export async function loadFeedMemory(): Promise<FeedMemory> {
   try {
-    const raw = await fs.readFile(FEED_FILE, 'utf-8');
+    const raw = await fs.readFile(FEED_PATH, 'utf-8');
     return JSON.parse(raw);
   } catch {
     return {};
@@ -21,7 +18,7 @@ export async function loadFeedMemory(): Promise<FeedMemory> {
 }
 
 export async function saveFeedMemory(memory: FeedMemory) {
-  await fs.writeFile(FEED_FILE, JSON.stringify(memory, null, 2));
+  await fs.writeFile(FEED_PATH, JSON.stringify(memory, null, 2));
 }
 
 export function updateFeedState(
