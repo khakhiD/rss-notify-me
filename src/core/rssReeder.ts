@@ -1,6 +1,7 @@
 import Parser from 'rss-parser';
 import { RSSItem } from '../types';
 import { loadFeedMemory, saveFeedMemory, updateFeedState } from '../utils/feedStorage';
+import { logger } from '../utils/logger';
 
 const parser = new Parser();
 
@@ -33,7 +34,7 @@ export async function fetchNewItems(feedUrls: string[]): Promise<RSSItem[]> {
         allNewItems.push(...newItems);
       }
     } catch (err) {
-      console.error(`[ERROR] ${feedUrl} 읽기 실패`, err);
+      logger.error(`${feedUrl} 읽기 실패`, err);
     }
   }
 

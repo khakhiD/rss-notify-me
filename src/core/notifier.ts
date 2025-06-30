@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import { GOOGLE_APP_PASSWORD, GOOGLE_USER, MAIL_FROM, MAIL_TO } from '../config';
+import { logger } from '../utils/logger';
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -38,5 +39,5 @@ export async function sendNotificationEmail(items: { title: string; link: string
     text: body,
   });
 
-  console.log(`[메일 전송 완료] ${items.length}개 항목`);
+  logger.success(`[메일 전송 완료] ${items.length}개 항목`);
 }
