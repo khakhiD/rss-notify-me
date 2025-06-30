@@ -1,13 +1,5 @@
-// src/core/notifier.ts
-
 import nodemailer from 'nodemailer';
-
-const {
-  GOOGLE_USER,
-  GOOGLE_APP_PASSWORD,
-  MAIL_FROM,
-  MAIL_TO,
-} = process.env;
+import { GOOGLE_APP_PASSWORD, GOOGLE_USER, MAIL_FROM, MAIL_TO } from '../config';
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
