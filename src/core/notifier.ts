@@ -3,17 +3,17 @@
 import nodemailer from 'nodemailer';
 
 const {
-  EMAIL_SERVICE,
-  EMAIL_USER,
-  EMAIL_APP_PASSWORD,
-  EMAIL_TO,
+  GOOGLE_USER,
+  GOOGLE_APP_PASSWORD,
+  MAIL_FROM,
+  MAIL_TO,
 } = process.env;
 
 const transporter = nodemailer.createTransport({
-  service: EMAIL_SERVICE,
+  service: 'gmail',
   auth: {
-    user: EMAIL_USER,
-    pass: EMAIL_APP_PASSWORD,
+    user: GOOGLE_USER,
+    pass: GOOGLE_APP_PASSWORD,
   },
 });
 
@@ -40,8 +40,8 @@ export async function sendNotificationEmail(items: { title: string; link: string
   ].join('\n');
 
   await transporter.sendMail({
-    from: EMAIL_USER,
-    to: EMAIL_TO,
+    from: MAIL_FROM,
+    to: MAIL_TO,
     subject,
     text: body,
   });
