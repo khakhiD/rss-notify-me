@@ -2,7 +2,7 @@ name: RSS Notify Me - Daily Check
 
 on: 
   schedule:
-    - cron: '50 3 * * *' # UTC 00:00 -> 09:00 KST
+    - cron: '55 3 * * *' # UTC 00:00 -> 09:00 KST
   workflow_dispatch: # 수동 실행도 가능
 
 jobs:
