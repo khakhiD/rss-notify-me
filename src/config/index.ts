@@ -1,9 +1,6 @@
 import dotenv from 'dotenv';
-import path from 'path';
 
-dotenv.config({
-  path: path.resolve(process.cwd(), '.env'),
-});
+dotenv.config();
 
 function requireEnv(name: string): string {
   const value = process.env[name];
@@ -25,6 +22,9 @@ export const MAIL_TO = requireEnv('MAIL_TO').split(',').map(email => email.trim(
 // RSS 피드 목록 설정
 export const RSS_FEED_URLS = requireEnv('RSS_FEED_URLS').split(',').map(url => url.trim());
 
-// 피드 저장 경로, 최대 링크 수 설정
-export const FEED_PATH = path.join(__dirname, '..', '..', 'feed.json');
+// JSONBin 설정
+export const JSONBIN_BIN_ID = requireEnv('JSONBIN_BIN_ID');
+export const JSONBIN_ACCESS_KEY = requireEnv('JSONBIN_ACCESS_KEY');
+
+// 최대 링크 수 설정
 export const MAX_LINKS = 20;
