@@ -27,4 +27,6 @@ jobs:
           MAIL_FROM: ${{ secrets.MAIL_FROM }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
           RSS_FEED_URLS: ${{ secrets.RSS_FEED_URLS }}
+          JSONBIN_BIN_ID: ${{ secrets.JSONBIN_BIN_ID}}
+          JSONBIN_ACCESS_KEY: ${{ secrets.JSONBIN_ACCESS_KEY}}
         run: npx ts-node src/index.ts
